@@ -1,0 +1,13 @@
+# Python deps for the Gemini-powered email archive toolkit.
+# Use the unified Gen AI SDK (google-genai), not the deprecated
+# google-generativeai package.
+
+google-genai>=1.40           # unified SDK: Gemini Developer API
+lancedb>=0.13,<0.21          # local on-disk vector store (single dir, no service)
+                             # pinned <0.21 to avoid a lance-namespace packaging bug in 0.27
+pyarrow>=14                  # required by lancedb
+fastapi>=0.110               # the localhost bridge the Thunderbird extension calls
+uvicorn[standard]>=0.27      # ASGI server for fastapi
+pydantic>=2.5                # request/response models
+tiktoken>=0.5                # rough token counting so chunks fit
+python-dateutil>=2.8         # robust email Date: header parsing
